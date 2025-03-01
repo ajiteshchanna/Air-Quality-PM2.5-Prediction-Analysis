@@ -19,7 +19,8 @@ file_id = "1yzcnABIAJdL_862YrtmBgBF5iArlbOEt"
 output = "model.pkl"
 
 # Google Drive se Model Download Karo
-gdown.download(f"https://drive.google.com/file/d/{file_id}/view?usp=sharing", output, quiet=False)
+gdown.download(f"https://drive.google.com/uc?id={file_id}", output, quiet=False)
+
 
 
 # Model Load Karo
