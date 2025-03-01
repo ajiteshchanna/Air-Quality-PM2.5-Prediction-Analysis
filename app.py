@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import zipfile
 
 # Title
 st.title("🌍 Air Quality PM2.5 Level Prediction")
@@ -13,6 +14,13 @@ st.sidebar.image("image.png", use_column_width=True)
 st.sidebar.title("Fasten Your Seatbelts! Let’s Navigate Through the Project")
 option = st.sidebar.radio("🧭 Choose Your Path:", ["About 💡", "Let Predict! 📈"])
 
+
+
+with zipfile.ZipFile("model.zip", "r") as zip_ref:
+    zip_ref.extractall()
+
+with open("model.pkl", "rb") as file:
+    model = pickle.load(file)
 
 
 # Dataset Loading
