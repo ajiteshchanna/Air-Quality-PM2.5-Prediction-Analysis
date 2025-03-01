@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import zipfile
+import gdown
 
 # Title
 st.title("🌍 Air Quality PM2.5 Level Prediction")
@@ -14,13 +15,17 @@ st.sidebar.image("image.png", use_column_width=True)
 st.sidebar.title("Fasten Your Seatbelts! Let’s Navigate Through the Project")
 option = st.sidebar.radio("🧭 Choose Your Path:", ["About 💡", "Let Predict! 📈"])
 
+file_id = "1yzcnABIAJdL_862YrtmBgBF5iArlbOEt"
+output = "model.pkl"
+
+# Google Drive se Model Download Karo
+gdown.download(f"https://drive.google.com/file/d/{file_id}/view?usp=sharing", output, quiet=False)
 
 
-with zipfile.ZipFile("model.zip", "r") as zip_ref:
-    zip_ref.extractall()
-
+# Model Load Karo
 with open("model.pkl", "rb") as file:
     model = pickle.load(file)
+
 
 
 # Dataset Loading
