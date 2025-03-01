@@ -6,3 +6,4 @@ seaborn
 numpy
 pickle-mixin
 zipfile
+gdown
