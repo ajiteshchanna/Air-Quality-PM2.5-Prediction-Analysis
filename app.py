@@ -23,9 +23,10 @@ gdown.download(f"https://drive.google.com/uc?id={file_id}", output, quiet=False)
 
 
 
+
 # Model Load Karo
 with open("model.pkl", "rb") as file:
-    model = pickle.load(file)
+    m = pickle.load(file)
 
 
 
@@ -119,7 +120,7 @@ elif option == "Let Predict! 📈":
 
     # Loading the Model
     with open("model.pkl", "rb") as file:
-        model = pickle.load(file)
+        m = pickle.load(file)
 
     # Input Fields
     st.subheader("📥 Enter Required Data")
@@ -133,7 +134,7 @@ elif option == "Let Predict! 📈":
         input_data = np.array([[year, month, day, hour]])
 
         # Prediction
-        prediction = model.predict(input_data)
+        prediction = m.predict(input_data)
 
         # Showing the Result
         st.success(f"Predicted PM2.5 Level: {prediction[0]:.2f} µg/m³")
